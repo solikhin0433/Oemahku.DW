@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+/* ============================================================
+   OEMAHKU.DW — Architecture & Design Theme
+   Sesuai DOCUMENT.md:
+   - Hitam pekat: #0D0D0D (Background dark section, teks utama)
+   - Putih gading: #F7F5F2 (Background light section)
+   - Abu netral: #A0A0A0 (Teks sekunder, border)
+   - Aksen kayu/gold: #B98A4D (Highlight, tombol, garis dekoratif)
+   - Biru langit (opsional): #5FA8D3 (Elemen dekoratif)
+   ============================================================ */
+
+:root {
+  /* Palet Warna Utama */
+  --background: #F7F5F2;         /* Putih gading (background light section) */
+  --surface: #FFFFFF;            /* Putih bersih kartu / komponen */
+  --surface-alt: #F0ECE4;        /* Alternating surface lembut */
+  --dark-bg: #0D0D0D;            /* Hitam pekat (background dark section) */
+  --dark-surface: #141414;       /* Surface di dalam dark section */
+  --foreground: #0D0D0D;         /* Teks utama hitam pekat */
+  --foreground-muted: #666666;   /* Teks paragraf membaca nyaman */
+  --primary: #B98A4D;            /* Aksen kayu / gold */
+  --primary-hover: #A07840;      /* Hover aksen kayu / gold */
+  --secondary: #A0A0A0;          /* Abu netral (teks sekunder) */
+  --muted: #A0A0A0;              /* Abu netral (subteks) */
+  --border: #E6E2DC;             /* Border arsitektur halus di light section */
+  --border-dark: rgba(160, 160, 160, 0.25); /* Border di dark section */
+  --accent-blue: #5FA8D3;        /* Biru langit (elemen dekoratif arsitektural) */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-dark-bg: var(--dark-bg);
+  --color-dark-surface: var(--dark-surface);
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-border-dark: var(--border-dark);
+  --color-accent-blue: var(--accent-blue);
+  --font-sans: var(--font-sans);
+  --font-heading: var(--font-heading);
+  --font-serif: var(--font-serif);
+}
+
+.font-architectural-serif {
+  font-family: var(--font-serif), "Playfair Display", Georgia, serif;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading), var(--font-sans), sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+  }
+}
+
+/* ============================================================
+   SELECTION COLOR
+   ============================================================ */
+::selection {
+  background-color: #B98A4D;
+  color: #FFFFFF;
+}
