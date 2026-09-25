@@ -4,8 +4,85 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { projects } from "@/data/projects";
+
+function PortfolioImageSlider({ images, title }: { images: string[], title: string }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  if (!images || images.length === 0) {
+    return (
+      <div className="absolute inset-0 flex items-center justify-center text-[#A0A0A0]">
+        No Image
+      </div>
+    );
+  }
+
+  const nextSlide = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevSlide = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  return (
+    <div className="relative w-full h-full overflow-hidden group/slider">
+      <AnimatePresence mode="popLayout" initial={false}>
+        <motion.div
+          key={currentIndex}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="absolute inset-0"
+        >
+          <Image
+            src={images[currentIndex]}
+            alt={`${title} image ${currentIndex + 1}`}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Manual Controls */}
+      {images.length > 1 && (
+        <>
+          <button
+            onClick={prevSlide}
+            className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 hover:bg-[#B98A4D] text-white flex items-center justify-center opacity-0 group-hover/slider:opacity-100 transition-all duration-300 z-10"
+          >
+            <ChevronLeft size={18} />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 hover:bg-[#B98A4D] text-white flex items-center justify-center opacity-0 group-hover/slider:opacity-100 transition-all duration-300 z-10"
+          >
+            <ChevronRight size={18} />
+          </button>
+          
+          {/* Indicators */}
+          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10 opacity-0 group-hover/slider:opacity-100 transition-all duration-300">
+            {images.map((_, idx) => (
+              <div
+                key={idx}
+                className={`w-1.5 h-1.5 rounded-full transition-colors ${
+                  idx === currentIndex ? "bg-[#B98A4D]" : "bg-white/50"
+                }`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
 
 export default function PortfolioPage() {
   const [filter, setFilter] = useState("Semua");
@@ -31,7 +108,7 @@ export default function PortfolioPage() {
             Karya & <span className="text-[#B98A4D]">Portofolio</span>
           </h1>
           <p className="text-base md:text-lg text-[#666666] leading-relaxed">
-            Eksplorasi ragam desain arsitektur dan interior yang telah kami selesaikan. Setiap karya adalah wujud nyata dari visi, fungsionalitas, dan estetika yang presisi.
+            Berikut adalah beberapa hasil proyek desain yang telah kami selesaikan.
           </p>
         </div>
 
@@ -69,7 +146,9 @@ export default function PortfolioPage() {
                 className="group relative rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-xl border border-[#E6E2DC] transition-all duration-300"
               >
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F0ECE4]">
-                  {project.image ? (
+                  {project.images && project.images.length > 0 ? (
+                    <PortfolioImageSlider images={project.images} title={project.title} />
+                  ) : project.image ? (
                     <Image
                       src={project.image}
                       alt={project.title}
@@ -82,19 +161,6 @@ export default function PortfolioPage() {
                       No Image
                     </div>
                   )}
-                  {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <Link
-                      href={`/portfolio/${project.id}`}
-                      className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-[#0D0D0D] hover:bg-[#B98A4D] hover:text-white transition-colors transform translate-y-4 group-hover:translate-y-0 duration-300"
-                    >
-                      <ArrowUpRight size={24} />
-                    </Link>
-                  </div>
-                  {/* Category Tag */}
-                  <div className="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-sm text-[#0D0D0D] text-[10px] font-bold uppercase tracking-wider rounded shadow-sm">
-                    {project.category}
-                  </div>
                 </div>
 
                 <div className="p-6">
@@ -119,3 +185,5 @@ export default function PortfolioPage() {
     </div>
   );
 }
+
+

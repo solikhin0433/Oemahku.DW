@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -68,6 +69,43 @@ const workSteps = [
     description: "Penyusunan gambar kerja detail dan Rencana Anggaran Biaya untuk panduan tukang/kontraktor.",
   },
 ];
+
+function ProjectCarousel({ images, title }: { images: string[], title: string }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (!images || images.length <= 1) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 4500); // Berganti setiap 4.5 detik (lebih lambat)
+    return () => clearInterval(interval);
+  }, [images]);
+
+  if (!images || images.length === 0) return null;
+
+  return (
+    <div className="relative w-full h-full overflow-hidden">
+      <AnimatePresence mode="popLayout" initial={false}>
+        <motion.div
+          key={currentIndex}
+          initial={{ x: "100%" }}
+          animate={{ x: 0 }}
+          exit={{ x: "-100%" }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          className="absolute inset-0"
+        >
+          <Image
+            src={images[currentIndex]}
+            alt={`${title} image ${currentIndex + 1}`}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover object-center"
+          />
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
+}
 
 export default function Home() {
   const featuredProjects = projects.slice(0, 4);
@@ -187,7 +225,7 @@ export default function Home() {
               Portofolio
             </h2>
             <p className="text-[#666666] text-base max-w-2xl mx-auto">
-              Contoh kelengkapan paket produk desain yang Anda dapatkan di OEMAHKU.DW: visualisasi 3D fasad, gambar kerja konstruksi, interior 3D, hingga rincian RAB.
+              Berikut beberapa hasil Project yang sudah  kami kerjakan
             </p>
           </div>
 
@@ -199,24 +237,23 @@ export default function Home() {
                 className="bg-white rounded-xl border border-[#E6E2DC] hover:border-[#B98A4D] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group"
               >
                 {/* Image Container */}
-                <div className="relative h-80 sm:h-96 w-full overflow-hidden bg-[#F0ECE4]">
-                  {project.image && (
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F0ECE4]">
+                  {project.images && project.images.length > 0 ? (
+                    <ProjectCarousel images={project.images} title={project.title} />
+                  ) : project.image ? (
                     <Image
                       src={project.image}
                       alt={project.title}
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
+                      className="object-cover object-center transition-transform duration-500 ease-out"
                     />
-                  )}
-                  <div className="absolute top-4 left-4 px-3 py-1 rounded bg-[#B98A4D] text-white text-xs font-bold uppercase tracking-wider shadow">
-                    {project.category}
-                  </div>
+                  ) : null}
                 </div>
 
                 {/* Caption below image */}
                 <div className="p-6 text-center border-t border-[#E6E2DC]">
-                  <h3 className="text-xl font-heading font-bold text-[#0D0D0D] mb-2 italic">
+                  <h3 className="text-xl font-heading font-bold text-[#0D0D0D] mb-2">
                     {project.title}
                   </h3>
                   <p className="text-[#666666] text-sm leading-relaxed max-w-md mx-auto line-clamp-2">
@@ -350,3 +387,5 @@ export default function Home() {
     </div>
   );
 }
+
+

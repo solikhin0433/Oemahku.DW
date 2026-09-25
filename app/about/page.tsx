@@ -25,7 +25,7 @@ const advantages = [
   },
   {
     title: "Profesional & Responsif",
-    description: "Tim arsitek kami selalu siap mendengarkan, berdiskusi, dan memberikan solusi tata ruang terbaik untuk hunian Anda.",
+    description: "Tim desain arsitektur kami selalu siap mendengarkan, berdiskusi, dan memberikan solusi tata ruang terbaik untuk hunian Anda.",
     icon: Users,
   },
 ];
@@ -58,15 +58,15 @@ export default function AboutPage() {
     <div className="bg-[#F7F5F2] text-[#0D0D0D]">
       {/* 1. Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 px-4 overflow-hidden bg-[#0D0D0D]">
-        <div className="absolute inset-0 z-0 opacity-40">
+        <div className="absolute inset-0 z-0">
           <Image
             src="/Asset/home/home_latarbelakang.png"
             alt="OEMAHKU.DW Architecture Background"
             fill
-            className="object-cover object-center grayscale"
+            className="object-cover object-center"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D] via-[#0D0D0D]/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#0D0D0D]" />
         </div>
         
         <div className="container mx-auto px-4 md:px-8 relative z-10 text-center max-w-4xl">
@@ -90,12 +90,15 @@ export default function AboutPage() {
             {/* Image Side */}
             <div className="relative h-[400px] lg:h-[500px] w-full rounded-2xl overflow-hidden bg-[#F0ECE4] shadow-xl border border-[#E6E2DC]">
               <div className="absolute inset-0 bg-gradient-to-tr from-[#B98A4D]/20 to-transparent z-10 mix-blend-overlay"></div>
-              {/* Using a placeholder visual approach similar to the portfolio section */}
-              <div className="absolute inset-0 flex items-center justify-center text-[#B98A4D]/40">
-                <Target size={120} strokeWidth={1} />
+              <div className="absolute inset-0 flex items-center justify-center p-12">
+                <Image 
+                  src="/Asset/Logo/LOGO.png" 
+                  alt="OEMAHKU.DW Logo" 
+                  width={200}
+                  height={200}
+                  className="w-auto h-auto max-h-[60%] object-contain opacity-80 brightness-0" 
+                />
               </div>
-              {/* You can replace this Image src with a real team or blueprint image later */}
-              {/* <Image src="..." fill alt="Cerita OEMAHKU.DW" className="object-cover" /> */}
             </div>
 
             {/* Text Side */}
@@ -114,7 +117,7 @@ export default function AboutPage() {
                   Kami percaya bahwa setiap orang berhak memiliki rumah impian yang tidak hanya estetik secara visual, tapi juga fungsional, sehat, dan sesuai dengan batasan anggaran (budget) yang dimiliki.
                 </p>
                 <p>
-                  Dengan tim arsitek yang berpengalaman dan penuh passion, kami siap mendampingi perjalanan Anda merencanakan hunian idaman dari sebatas angan, berlanjut ke tahap konsep, hingga menjadi gambar kerja teknis (DED) dan perhitungan biaya (RAB) yang presisi.
+                  Dengan tim desain arsitektur yang berpengalaman dan penuh passion, kami siap mendampingi perjalanan Anda merencanakan hunian idaman dari sebatas angan, berlanjut ke tahap konsep, hingga menjadi gambar kerja teknis (DED) dan perhitungan biaya (RAB) yang presisi.
                 </p>
               </div>
             </div>
@@ -200,10 +203,7 @@ export default function AboutPage() {
           </p>
           <a
             href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              alert("Nomor WhatsApp menyusul segera.");
-            }}
+            title="Nomor WhatsApp menyusul segera."
             className="inline-flex items-center gap-2 px-8 py-4 bg-[#B98A4D] hover:bg-[#A07840] text-white font-bold rounded-lg transition-all duration-300 shadow-xl shadow-[#B98A4D]/25 text-sm uppercase tracking-wider hover:-translate-y-0.5"
           >
             <span>Konsultasi Gratis Sekarang</span>
@@ -214,3 +214,5 @@ export default function AboutPage() {
     </div>
   );
 }
+
+

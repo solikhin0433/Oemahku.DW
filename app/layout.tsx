@@ -30,7 +30,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "OEMAHKU.DW — Jasa Desain Rumah Online & Arsitektur",
+  title: "OEMAHKU.DW",
   description: "Jasa desain rumah online profesional, visualisasi 3D konsep arsitektur, gambar kerja DED, RAB, dan desain interior murah berkualitas.",
 };
 
