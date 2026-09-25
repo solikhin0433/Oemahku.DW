@@ -24,7 +24,7 @@ export default function BackgroundSlider({ images, interval = 5000 }: Background
 
   return (
     <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-      <AnimatePresence mode="popLayout" initial={false}>
+      <AnimatePresence initial={false}>
         <motion.div
           key={currentIndex}
           initial={{ opacity: 0 }}

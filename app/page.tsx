@@ -85,7 +85,7 @@ function ProjectCarousel({ images, title }: { images: string[], title: string })
 
   return (
     <div className="relative w-full h-full overflow-hidden">
-      <AnimatePresence mode="popLayout" initial={false}>
+      <AnimatePresence initial={false}>
         <motion.div
           key={currentIndex}
           initial={{ x: "100%" }}
