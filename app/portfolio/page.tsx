@@ -32,7 +32,7 @@ function PortfolioImageSlider({ images, title }: { images: string[], title: stri
 
   return (
     <div className="relative w-full h-full overflow-hidden group/slider">
-      <AnimatePresence mode="popLayout" initial={false}>
+      <AnimatePresence initial={false}>
         <motion.div
           key={currentIndex}
           initial={{ opacity: 0 }}
@@ -46,6 +46,8 @@ function PortfolioImageSlider({ images, title }: { images: string[], title: stri
             alt={`${title} image ${currentIndex + 1}`}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            loading="lazy"
+            quality={80}
             className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
           />
         </motion.div>
@@ -103,6 +105,9 @@ export default function PortfolioPage() {
             fill
             className="object-cover object-center"
             priority
+            loading="eager"
+            fetchPriority="high"
+            quality={85}
           />
           <div className="absolute inset-0 bg-[#0D0D0D]/80 backdrop-blur-sm" />
         </div>

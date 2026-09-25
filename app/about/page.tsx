@@ -66,6 +66,9 @@ export default function AboutPage() {
             fill
             className="object-cover object-center"
             priority
+            loading="eager"
+            fetchPriority="high"
+            quality={85}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#0D0D0D]" />
         </div>

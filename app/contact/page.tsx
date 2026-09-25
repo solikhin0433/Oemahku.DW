@@ -51,6 +51,9 @@ export default function ContactPage() {
             fill
             className="object-cover object-center"
             priority
+            loading="eager"
+            fetchPriority="high"
+            quality={85}
           />
           <div className="absolute inset-0 bg-[#0D0D0D]/80 backdrop-blur-sm" />
         </div>

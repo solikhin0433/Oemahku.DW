@@ -112,9 +112,9 @@ export default function Home() {
 
   return (
     <div className="bg-[#F7F5F2] text-[#0D0D0D]">
-      {/* Hero Section — Styled after reference Image 2 */}
+      {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col justify-center items-center text-center overflow-hidden px-4 md:px-8 pt-24 pb-20">
-        {/* Full-bleed Background Image with Cinematic Dark Transparent Overlay */}
+        {/* Full-bleed Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/Asset/home/home_latarbelakang.png"
@@ -123,18 +123,20 @@ export default function Home() {
             sizes="100vw"
             className="object-cover object-center"
             priority
+            loading="eager"
+            fetchPriority="high"
+            quality={85}
           />
-          {/* Subtle Dark Gradient Overlay for Maximum Elegance & Readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/75" />
         </div>
 
-        {/* Hero Content — Centered Luxury Architecture Style */}
+        {/* Hero Content */}
         <div className="relative z-10 max-w-4xl mx-auto my-auto flex flex-col items-center">
           {/* Main Headline */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
             style={{ color: "#FFFFFF" }}
             className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-architectural-serif font-bold text-white tracking-tight leading-[1.08] mb-6 drop-shadow-2xl"
           >
@@ -149,9 +151,9 @@ export default function Home() {
 
           {/* Subtitle */}
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            transition={{ duration: 0.6, delay: 0.25, ease: "easeOut" }}
             className="text-sm sm:text-base md:text-lg text-white/90 max-w-3xl mx-auto font-light leading-relaxed mb-10 drop-shadow"
           >
             OEMAHKU.DW adalah studio yang berdedikasi tinggi dalam menghasilkan desain rumah tinggal Exterior dan Interior yang tidak hanya indah dipandang, tetapi juga nyaman dihuni. Pendekatan kami selalu personal, menggabungkan visi Anda dengan keahlian teknis dan estetika. Kami juga bergerak di bidang kontraktor sehingga hasil desain &amp; bangunan yang sudah jadi, bisa sesuai apa yang diinginkan klien kami.
@@ -159,9 +161,9 @@ export default function Home() {
 
           {/* Action Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
             className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full sm:w-auto"
           >
             <Link
@@ -246,6 +248,8 @@ export default function Home() {
                       alt={project.title}
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
+                      loading="lazy"
+                      quality={80}
                       className="object-cover object-center transition-transform duration-500 ease-out"
                     />
                   ) : null}

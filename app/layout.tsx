@@ -41,6 +41,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" className={`${hind.variable} ${poppins.variable} ${playfair.variable} h-full antialiased`} suppressHydrationWarning>
+      <head>
+        {/* Preconnect to Google Fonts to eliminate render-blocking delay */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* DNS prefetch as fallback for older browsers */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+      </head>
       <body className="min-h-full flex flex-col font-sans bg-background text-foreground transition-colors duration-300">
         <ThemeProvider>
           <LenisProvider>
