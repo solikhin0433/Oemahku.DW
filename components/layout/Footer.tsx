@@ -46,11 +46,11 @@ export default function Footer() {
                   Tentang Kami
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/services" className="text-[#A0A0A0] hover:text-[#B98A4D] transition-colors">
                   Paket & Layanan
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="/portfolio" className="text-[#A0A0A0] hover:text-[#B98A4D] transition-colors">
                   Portofolio Desain

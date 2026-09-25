@@ -120,7 +120,7 @@ export default function PortfolioPage() {
               onClick={() => setFilter(category)}
               className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
                 filter === category
-                  ? "bg-[#B98A4D] text-white shadow-lg shadow-[#B98A4D]/25"
+                  ? "bg-[#B98A4D] text-white"
                   : "bg-white text-[#666666] border border-[#E6E2DC] hover:border-[#B98A4D] hover:text-[#0D0D0D]"
               }`}
             >

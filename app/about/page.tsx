@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, CheckCircle2, Target, Heart, Eye, Users } from "lucide-react";
+import BackgroundSlider from "@/components/ui/BackgroundSlider";
 
 export const metadata = {
   title: "Tentang Kami | OEMAHKU.DW",
@@ -126,13 +127,19 @@ export default function AboutPage() {
       </section>
 
       {/* 3. Kenapa Memilih Kami (Keunggulan) */}
-      <section className="py-20 bg-[#F7F5F2] border-t border-[#E6E2DC]">
-        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+      <section className="relative py-28 border-t border-[#E6E2DC]">
+        <BackgroundSlider 
+          images={[
+            "/Asset/1. MODERN 2 LT/A.png",
+            "/Asset/home/home_latarbelakang.png"
+          ]} 
+        />
+        <div className="container relative z-10 mx-auto px-4 md:px-8 max-w-6xl">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-[#B98A4D] text-xs font-bold uppercase tracking-widest block mb-2">
               Keunggulan Layanan
             </span>
-            <h2 className="text-3xl sm:text-4xl font-heading font-black text-[#0D0D0D] tracking-tight mb-4">
+            <h2 className="text-3xl sm:text-4xl font-heading font-black text-white tracking-tight mb-4">
               Kenapa Memilih OEMAHKU.DW?
             </h2>
           </div>
@@ -141,10 +148,7 @@ export default function AboutPage() {
             {advantages.map((item, idx) => {
               const Icon = item.icon;
               return (
-                <div key={idx} className="bg-white p-8 rounded-xl border border-[#E6E2DC] hover:border-[#B98A4D] transition-colors shadow-sm flex gap-6">
-                  <div className="shrink-0 w-12 h-12 rounded-lg bg-[#B98A4D]/10 flex items-center justify-center text-[#B98A4D]">
-                    <Icon size={24} />
-                  </div>
+                <div key={idx} className="bg-white/95 backdrop-blur-sm p-8 rounded-xl border border-white/20 hover:border-[#B98A4D] transition-colors shadow-lg flex flex-col justify-center">
                   <div>
                     <h3 className="text-lg font-heading font-bold text-[#0D0D0D] mb-2">{item.title}</h3>
                     <p className="text-[#666666] text-sm leading-relaxed">{item.description}</p>
@@ -168,26 +172,33 @@ export default function AboutPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {workSteps.map((step, idx) => (
-              <div
-                key={idx}
-                className="p-8 rounded-xl bg-[#F7F5F2] border border-[#E6E2DC] relative overflow-hidden group hover:border-[#B98A4D] transition-colors"
-              >
-                <div className="absolute top-0 right-0 p-4 text-7xl font-heading font-black text-[#E6E2DC] group-hover:text-[#B98A4D]/10 transition-colors pointer-events-none">
-                  {step.number}
+          <div className="relative max-w-5xl mx-auto">
+            {/* Horizontal Line for Desktop */}
+            <div className="hidden lg:block absolute top-7 left-[12.5%] right-[12.5%] h-[2px] bg-[#B98A4D]" />
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {workSteps.map((step, idx) => (
+                <div key={idx} className="flex flex-col items-center">
+                  {/* Circle Icon */}
+                  <div className="relative z-10 w-14 h-14 rounded-full bg-[#B98A4D] flex items-center justify-center text-white mb-6 shadow-md border-[6px] border-white">
+                    <span className="font-heading font-bold text-lg">{idx + 1}</span>
+                  </div>
+
+                  {/* Card */}
+                  <div className="bg-white p-6 rounded-xl border border-[#E6E2DC] w-full h-full text-left flex flex-col hover:border-[#B98A4D]/50 transition-colors shadow-sm">
+                    <div className="flex items-center gap-2 mb-4">
+                      <span className="text-xs font-bold text-[#A0A0A0]">{step.number}</span>
+                    </div>
+                    <h3 className="text-lg font-heading font-bold text-[#0D0D0D] mb-3 leading-snug">
+                      {step.title}
+                    </h3>
+                    <p className="text-[#666666] text-xs sm:text-sm leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
-                <div className="relative z-10">
-                  <div className="text-[#B98A4D] font-bold text-lg mb-3">Langkah {step.number}</div>
-                  <h3 className="text-xl font-heading font-bold text-[#0D0D0D] mb-3">
-                    {step.title}
-                  </h3>
-                  <p className="text-[#666666] text-sm leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -204,7 +215,7 @@ export default function AboutPage() {
           <a
             href="#"
             title="Nomor WhatsApp menyusul segera."
-            className="inline-flex items-center gap-2 px-8 py-4 bg-[#B98A4D] hover:bg-[#A07840] text-white font-bold rounded-lg transition-all duration-300 shadow-xl shadow-[#B98A4D]/25 text-sm uppercase tracking-wider hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#B98A4D] hover:bg-[#A07840] text-white font-bold rounded-lg transition-all duration-300 text-sm uppercase tracking-wider hover:-translate-y-0.5"
           >
             <span>Konsultasi Gratis Sekarang</span>
             <ArrowUpRight size={18} />

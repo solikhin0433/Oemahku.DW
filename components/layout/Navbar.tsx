@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const navLinks = [
   { name: "HOME", href: "/" },
   { name: "ABOUT", href: "/about" },
-  { name: "SERVICES", href: "/services" },
+  // { name: "SERVICES", href: "/services" },
   { name: "PORTFOLIO", href: "/portfolio" },
   { name: "CONTACT", href: "/contact" },
 ];
@@ -104,7 +104,7 @@ export default function Navbar() {
                 <Link
                   href="/contact"
                   onClick={() => setIsOpen(false)}
-                  className="w-full py-3.5 rounded bg-[#B98A4D] hover:bg-[#A07840] text-white font-bold text-center text-xs uppercase tracking-widest flex items-center justify-center gap-2 shadow-lg shadow-[#B98A4D]/25"
+                  className="w-full py-3.5 rounded bg-[#B98A4D] hover:bg-[#A07840] text-white font-bold text-center text-xs uppercase tracking-widest flex items-center justify-center gap-2"
                 >
                   <span>Mulai Konsultasi Gratis</span>
                   <ArrowUpRight size={16} />

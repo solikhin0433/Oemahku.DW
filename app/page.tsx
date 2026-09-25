@@ -166,7 +166,7 @@ export default function Home() {
           >
             <Link
               href="/portfolio"
-              className="w-full sm:w-auto px-8 py-3.5 bg-[#B98A4D] hover:bg-[#A07840] text-white font-medium rounded transition-all duration-300 shadow-xl shadow-black/40 flex items-center justify-center gap-2 text-sm tracking-wider hover:-translate-y-0.5"
+              className="w-full sm:w-auto px-8 py-3.5 bg-[#B98A4D] hover:bg-[#A07840] text-white font-medium rounded transition-all duration-300 flex items-center justify-center gap-2 text-sm tracking-wider hover:-translate-y-0.5"
             >
               <span>Lihat Portofolio</span>
               <ArrowRight size={16} />
@@ -267,7 +267,7 @@ export default function Home() {
           <div className="text-center mt-12">
             <Link
               href="/portfolio"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-[#B98A4D] hover:bg-[#A07840] text-white font-bold text-sm uppercase tracking-wider transition-all shadow-md shadow-[#B98A4D]/20 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-[#B98A4D] hover:bg-[#A07840] text-white font-bold text-sm uppercase tracking-wider transition-all hover:-translate-y-0.5"
             >
               <span>Jelajahi Semua Portofolio Desain</span>
               <ArrowRight size={18} />
@@ -293,21 +293,22 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {features.map((item, idx) => {
-              const Icon = item.icon;
               return (
                 <div
                   key={idx}
-                  className="p-8 rounded-xl bg-[#F7F5F2] border border-[#E6E2DC] hover:border-[#B98A4D] transition-all duration-300 hover:shadow-lg shadow-sm"
+                  className="relative p-8 rounded-xl bg-white border border-[#E6E2DC] hover:border-[#B98A4D]/30 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg overflow-hidden group"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-[#B98A4D]/10 border border-[#B98A4D]/25 flex items-center justify-center text-[#B98A4D] mb-6">
-                    <Icon size={26} />
+                  <div className="text-3xl font-heading font-black text-[#B98A4D] mb-4">
+                    {String(idx + 1).padStart(2, "0")}
                   </div>
-                  <h3 className="text-xl font-heading font-bold text-[#0D0D0D] mb-3">
-                    {item.title}
-                  </h3>
-                  <p className="text-[#666666] text-sm leading-relaxed">
-                    {item.description}
-                  </p>
+                  <div className="relative z-10">
+                    <h3 className="text-xl font-heading font-bold text-[#0D0D0D] mb-3">
+                      {item.title}
+                    </h3>
+                    <p className="text-[#666666] text-sm leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
               );
             })}
@@ -370,7 +371,7 @@ export default function Home() {
                 e.preventDefault();
                 alert("Nomor WhatsApp menyusul segera.");
               }}
-              className="px-8 py-4 bg-[#B98A4D] hover:bg-[#A07840] text-white font-bold rounded-lg transition-all duration-300 shadow-xl shadow-[#B98A4D]/25 flex items-center justify-center gap-2 text-sm uppercase tracking-wider hover:-translate-y-0.5"
+              className="px-8 py-4 bg-[#B98A4D] hover:bg-[#A07840] text-white font-bold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-sm uppercase tracking-wider hover:-translate-y-0.5"
             >
               <span>Chat WhatsApp Sekarang</span>
               <ArrowUpRight size={18} />
