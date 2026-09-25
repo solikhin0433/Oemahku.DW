@@ -80,7 +80,7 @@ export default function ContactPage() {
               
               <div className="space-y-8">
                 <div className="flex items-start gap-5">
-                  <div className="shrink-0 w-14 h-14 rounded-xl bg-[#B98A4D]/10 flex items-center justify-center text-[#B98A4D]">
+                  <div className="shrink-0 w-14 h-14 rounded-xl bg-[#B98A4D]/10 flex items-center justify-center text-[#0D0D0D]">
                     <Phone size={24} />
                   </div>
                   <div>
@@ -93,7 +93,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-5">
-                  <div className="shrink-0 w-14 h-14 rounded-xl bg-[#B98A4D]/10 flex items-center justify-center text-[#B98A4D]">
+                  <div className="shrink-0 w-14 h-14 rounded-xl bg-[#B98A4D]/10 flex items-center justify-center text-[#0D0D0D]">
                     <Mail size={24} />
                   </div>
                   <div>
@@ -106,7 +106,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-5">
-                  <div className="shrink-0 w-14 h-14 rounded-xl bg-[#B98A4D]/10 flex items-center justify-center text-[#B98A4D]">
+                  <div className="shrink-0 w-14 h-14 rounded-xl bg-[#B98A4D]/10 flex items-center justify-center text-[#0D0D0D]">
                     <Camera size={24} />
                   </div>
                   <div>
@@ -119,7 +119,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-5">
-                  <div className="shrink-0 w-14 h-14 rounded-xl bg-[#B98A4D]/10 flex items-center justify-center text-[#B98A4D]">
+                  <div className="shrink-0 w-14 h-14 rounded-xl bg-[#B98A4D]/10 flex items-center justify-center text-[#0D0D0D]">
                     <Smartphone size={24} />
                   </div>
                   <div>
@@ -132,7 +132,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-5">
-                  <div className="shrink-0 w-14 h-14 rounded-xl bg-[#B98A4D]/10 flex items-center justify-center text-[#B98A4D]">
+                  <div className="shrink-0 w-14 h-14 rounded-xl bg-[#B98A4D]/10 flex items-center justify-center text-[#0D0D0D]">
                     <PlayCircle size={24} />
                   </div>
                   <div>
@@ -145,7 +145,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-5">
-                  <div className="shrink-0 w-14 h-14 rounded-xl bg-[#B98A4D]/10 flex items-center justify-center text-[#B98A4D]">
+                  <div className="shrink-0 w-14 h-14 rounded-xl bg-[#B98A4D]/10 flex items-center justify-center text-[#0D0D0D]">
                     <Users size={24} />
                   </div>
                   <div>

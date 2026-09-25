@@ -93,25 +93,37 @@ export default function PortfolioPage() {
   );
 
   return (
-    <div className="min-h-screen bg-[#F7F5F2] text-[#0D0D0D] pt-24 pb-20">
-      <div className="container mx-auto px-4 md:px-8 max-w-7xl">
-        {/* Header Section */}
-        <div className="mb-12 md:mb-20 text-center max-w-3xl mx-auto">
+    <main className="min-h-screen bg-[#F7F5F2] text-[#0D0D0D]">
+      {/* Hero Section */}
+      <section className="bg-[#0D0D0D] text-white pt-40 pb-24 relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/Asset/home/home_latarbelakang.png"
+            alt="Portfolio Hero Background"
+            fill
+            className="object-cover object-center"
+            priority
+          />
+          <div className="absolute inset-0 bg-[#0D0D0D]/80 backdrop-blur-sm" />
+        </div>
+        <div className="container relative z-20 mx-auto px-4 md:px-8 max-w-6xl text-center">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[#666666] hover:text-[#B98A4D] transition-colors mb-6"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[#A0A0A0] hover:text-[#B98A4D] transition-colors mb-6"
           >
             <ArrowLeft size={16} />
             <span>Kembali ke Beranda</span>
           </Link>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-architectural-serif font-bold text-[#0D0D0D] tracking-tight mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-architectural-serif font-bold tracking-tight mb-6">
             Karya & <span className="text-[#B98A4D]">Portofolio</span>
           </h1>
-          <p className="text-base md:text-lg text-[#666666] leading-relaxed">
+          <p className="text-[#A0A0A0] max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
             Berikut adalah beberapa hasil proyek desain yang telah kami selesaikan.
           </p>
         </div>
+      </section>
 
+      <div className="container mx-auto px-4 md:px-8 max-w-7xl pt-16 pb-20">
         {/* Filter Categories */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           {categories.map((category) => (
@@ -182,7 +194,7 @@ export default function PortfolioPage() {
           </div>
         )}
       </div>
-    </div>
+    </main>
   );
 }
 

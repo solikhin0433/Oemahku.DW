@@ -72,7 +72,7 @@ export default function AboutPage() {
         
         <div className="container mx-auto px-4 md:px-8 relative z-10 text-center max-w-4xl">
           <span className="text-[#B98A4D] text-sm font-bold uppercase tracking-widest block mb-4">
-            Tentang OEMAHKU.DW
+            Tentang <span className="text-white">OEMAHKU</span>.DW
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-white tracking-tight mb-6">
             Mewujudkan Rumah Impian Anda, <br className="hidden md:block" />
@@ -85,20 +85,34 @@ export default function AboutPage() {
       </section>
 
       {/* 2. Cerita Kami (Visi & Misi) */}
-      <section className="py-20 bg-white border-t border-[#E6E2DC]">
-        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+      <section className="relative py-20 bg-white border-t border-[#E6E2DC] overflow-hidden">
+        {/* Decorative Background Blob for Glassmorphism */}
+        <div className="absolute top-1/2 left-0 md:left-1/4 -translate-y-1/2 w-72 h-72 bg-[#B98A4D]/20 rounded-full blur-[80px] z-0 pointer-events-none"></div>
+
+        <div className="container relative mx-auto px-4 md:px-8 max-w-6xl z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Image Side */}
-            <div className="relative h-[400px] lg:h-[500px] w-full rounded-2xl overflow-hidden bg-[#F0ECE4] shadow-xl border border-[#E6E2DC]">
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#B98A4D]/20 to-transparent z-10 mix-blend-overlay"></div>
-              <div className="absolute inset-0 flex items-center justify-center p-12">
+            {/* Image Side (Glassmorphism Card) */}
+            <div className="relative h-[400px] lg:h-[500px] w-full rounded-3xl overflow-hidden bg-black/60 backdrop-blur-2xl shadow-2xl border border-white/20">
+              <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent z-10 pointer-events-none mix-blend-overlay"></div>
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-12 z-20">
+                {/* Logo Graphic (cropped to hide original text) */}
                 <Image 
                   src="/Asset/Logo/LOGO.png" 
-                  alt="OEMAHKU.DW Logo" 
+                  alt="OEMAHKU.DW Logo Graphic" 
                   width={200}
                   height={200}
-                  className="w-auto h-auto max-h-[60%] object-contain opacity-80 brightness-0" 
+                  className="w-auto h-auto max-h-[50%] object-contain opacity-90 brightness-0 invert drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]" 
+                  style={{ clipPath: "inset(0 0 26% 0)", marginBottom: "-10%" }}
                 />
+                {/* HTML Text to achieve White and Gold colors */}
+                <div className="flex flex-col items-center text-center mt-2">
+                  <span className="text-3xl md:text-4xl font-heading font-black tracking-tight text-white drop-shadow-md">
+                    OEMAHKU<span className="text-[#B98A4D]">.DW</span>
+                  </span>
+                  <span className="text-xs md:text-sm tracking-widest text-[#A0A0A0] uppercase font-semibold mt-1 drop-shadow-sm">
+                    ARCHITECTURE & CONTRACTOR
+                  </span>
+                </div>
               </div>
             </div>
 
