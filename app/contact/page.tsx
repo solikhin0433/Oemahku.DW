@@ -18,7 +18,7 @@ export default function ContactPage() {
       return;
     }
 
-    const waNumber = "6285791587968";
+    const waNumber = "6285707575231";
     
     const serviceMap: Record<string, string> = {
       arsitektur: "Desain Arsitektur (3D Fasad + Denah)",
@@ -89,8 +89,8 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-bold text-lg text-[#0D0D0D] mb-1">WhatsApp / Telepon</h3>
                     <p className="text-[#666666] text-sm mb-2">Konsultasi cepat secara langsung</p>
-                    <a href="https://wa.me/6285791587968" target="_blank" rel="noopener noreferrer" className="text-[#B98A4D] font-bold hover:underline">
-                      +62 857-9158-7968
+                    <a href="https://wa.me/6285707575231" target="_blank" rel="noopener noreferrer" className="text-[#B98A4D] font-bold hover:underline">
+                      +62 857-0757-5231
                     </a>
                   </div>
                 </div>
