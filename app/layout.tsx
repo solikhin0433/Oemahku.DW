@@ -30,8 +30,28 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "OEMAHKU.DW",
+  title: {
+    default: "OEMAHKU.DW | Jasa Desain Rumah Online",
+    template: "%s | OEMAHKU.DW"
+  },
   description: "Jasa desain rumah online profesional, visualisasi 3D konsep arsitektur, gambar kerja DED, RAB, dan desain interior murah berkualitas.",
+  keywords: ["Jasa desain rumah", "Arsitek online", "Desain interior", "Gambar DED", "Visualisasi 3D Rumah", "RAB", "OEMAHKU.DW"],
+  openGraph: {
+    title: "OEMAHKU.DW | Jasa Desain Rumah Online Profesional",
+    description: "Jasa desain rumah online, 3D arsitektur, DED, dan interior dengan harga terjangkau dan berkualitas.",
+    url: "https://oemahku-dw.vercel.app",
+    siteName: "OEMAHKU.DW",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Banner Oemahku DW",
+      }
+    ],
+    locale: "id_ID",
+    type: "website",
+  }
 };
 
 export default function RootLayout({
