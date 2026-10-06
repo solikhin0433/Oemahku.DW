@@ -41,14 +41,6 @@ export const metadata: Metadata = {
     description: "Jasa desain rumah online, 3D arsitektur, DED, dan interior dengan harga terjangkau dan berkualitas.",
     url: "https://oemahku-dw.vercel.app",
     siteName: "OEMAHKU.DW",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Banner Oemahku DW",
-      }
-    ],
     locale: "id_ID",
     type: "website",
   }
