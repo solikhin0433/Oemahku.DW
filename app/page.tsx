@@ -368,7 +368,7 @@ export default function Home() {
           <p className="text-[#666666] text-base sm:text-lg mb-10 max-w-xl mx-auto leading-relaxed">
             Hubungi kami sekarang melalui WhatsApp untuk konsultasi awal gratis seputar denah lahan, konsep desain, dan estimasi biaya.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          {/* <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#"
               onClick={(e) => {
@@ -386,7 +386,7 @@ export default function Home() {
             >
               Lihat Paket Layanan
             </Link>
-          </div>
+          </div> */}
         </div>
       </section>
     </div>
